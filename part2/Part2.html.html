@@ -316,7 +316,7 @@ print(paste(&quot;Total Earnings:&quot;, total_earnings))
 1071 2023-06-12 13.23459</p>
 <p class="has-line-data" data-line-start="340" data-line-end="341">A low correlation suggests that there is not a significant synchronization in the price movements of the two stocks. Larger residuals in a regression model result from this lack of synchronization, particularly since the model expects a linear relationship between the two stocks.</p>
 <p class="has-line-data" data-line-start="342" data-line-end="344">The X bar chart including the out of control points is as follows:<br>
-<img src="part2/images/images/1.jpeg" alt="control chart2"></p>
+<img src="images/images/1.jpeg" alt="control chart2"></p>
 <p class="has-line-data" data-line-start="345" data-line-end="346">The simulation results for SASA and SISE pair are as follows:</p>
 <p class="has-line-data" data-line-start="347" data-line-end="351">[1] “Opened long position in SISE on 2023-06-05 11:00:00”<br>
 [1] “Opened short position in SASA on 2023-06-05 11:00:00”<br>
@@ -332,7 +332,7 @@ print(paste(&quot;Total Earnings:&quot;, total_earnings))
 <p class="has-line-data" data-line-start="365" data-line-end="366">The second task of the projects is based on the comparison between the first part and hence, the specified stocks according to the correlations and specified periods are exactly the same with the first part.</p>
 <p class="has-line-data" data-line-start="367" data-line-end="368">In the first part of the project, pair trading strategy is built upon the linear regression model which involves constant variance assumption. Now, the new method of pair trading is developed by using time series modeling.</p>
 <p class="has-line-data" data-line-start="369" data-line-end="370">Time series models offer a more sophisticated way to work with models which have trends, seasonality, autocorrelations, and are dependent on the time horizon. By defining autoregressive (AR) and moving average (MA) parts of time series models, examination of complex time related data can be accomplished without smaller biases.</p>
-<p class="has-line-data" data-line-start="371" data-line-end="372"><img src="part2/images/images/3.jpeg" alt="residuals"></p>
+<p class="has-line-data" data-line-start="371" data-line-end="372"><img src="images/images/3.jpeg" alt="residuals"></p>
 <p class="has-line-data" data-line-start="373" data-line-end="374">Our strategy was to integrate time series models to improve trading algorithms. Therefore the input of the time series model is the residuals of the regression model of training data. Appropriate ARIMA model is defined to proceed with the residual data. Here is the ARIMA model of “AKBNK” and “GARAN”,</p>
 <pre><code class="has-line-data" data-line-start="376" data-line-end="389">library(forecast)
 
@@ -361,7 +361,7 @@ Training set -0.0002034648 0.0260364 0.01849386 222.3134 294.6888 NaN 0.00207798
 <p class="has-line-data" data-line-start="404" data-line-end="405">Auto.arima function is used to define a proper model. Also neighbor search of the model is implemented; however, the smallest AIC value is achieved by the ARIMA(0,1,1), which implies that model includes the first degree of differencing and the first degree of moving average part in it. In other words, training data has a linear trend in it, therefore, first differencing is applied by the model.</p>
 <p class="has-line-data" data-line-start="406" data-line-end="407">Then, the residuals of the ARIMA(0,1,1) model are used to construct control charts. New control limits are constructed based on the residuals of the time series model. Time series models eliminate the trends, autocorrelations and other biases of the dataset. Therefore, the residuals of time series models are more reliable than the regression models.</p>
 <p class="has-line-data" data-line-start="408" data-line-end="409">The residuals of the proposed model are plotted below. As observed in the plot, residuals have zero mean and no trend, which implies stationary data.</p>
-<p class="has-line-data" data-line-start="410" data-line-end="411"><img src="part2/images/images/4.jpeg" alt="residuals"></p>
+<p class="has-line-data" data-line-start="410" data-line-end="411"><img src="images/images/4.jpeg" alt="residuals"></p>
 <p class="has-line-data" data-line-start="412" data-line-end="413">The process of analyzing data is relying on the testing residuals of the regression model of test data according to the new control limits. Since new control limits are more conservative than the limits in task 1, more sensitive analysis of outliers can be implemented.</p>
 <pre><code class="has-line-data" data-line-start="415" data-line-end="434"># Create an X-bar chart using ggplot2
 library(ggplot2)
@@ -608,7 +608,7 @@ print(paste(&quot;Total Earnings:&quot;, total_earnings))
 <p class="has-line-data" data-line-start="664" data-line-end="665">[1] “Total Earnings: 0.307945941720126”</p>
 <p class="has-line-data" data-line-start="666" data-line-end="667">Total earnings of pair trading in that method is %30.7, while in Task 1 %6.92 . Even though the trading is implemented in the same period to the same pair of stocks, total earnings in the specified period is considerably higher than Task 1.</p>
 <p class="has-line-data" data-line-start="669" data-line-end="670">The residuals of the SASA - SISE are plotted in the below diagram. The same method implemented the pair trade of SASA - SISE in same period.</p>
-<p class="has-line-data" data-line-start="671" data-line-end="672"><img src="part2/images/images/5.jpeg" alt="residuals"></p>
+<p class="has-line-data" data-line-start="671" data-line-end="672"><img src="images/images/5.jpeg" alt="residuals"></p>
 <p class="has-line-data" data-line-start="673" data-line-end="675">Series: ts_residuals_training<br>
 ARIMA(1,1,1)</p>
 <p class="has-line-data" data-line-start="676" data-line-end="680">Coefficients:<br>
@@ -622,7 +622,7 @@ ME RMSE MAE MPE MAPE MASE ACF1<br>
 Training set -0.007210093 0.634537 0.2794884 -1.387574 15.82548 NaN 0.01094218</p>
 <p class="has-line-data" data-line-start="688" data-line-end="689">The auto.arima function is used to determine the proper model for modeling residuals of SASA - SISE pair. The method provides ARIMA(1,1,1) with the AIC value 4837.04, which is reasonable for the model. Model suggests an autoregressive part, a moving average part and first differencing in data to eliminate trends and other biases. Namely, residuals of the SASA-SISE regression model has linear trend in it.</p>
 <p class="has-line-data" data-line-start="690" data-line-end="691">The residuals of the ARIMA(1,1,1) model of residuals are plotted as in the below diagram. It is apparent that the residuals have mean zero and no trends, in other words it is stationary data. Strict changes at the end of the training data period are observed because of the uncommon price fluctuations in the BIST at that period.</p>
-<p class="has-line-data" data-line-start="692" data-line-end="693"><img src="part2/images/images/6.jpeg" alt="residuals"></p>
+<p class="has-line-data" data-line-start="692" data-line-end="693"><img src="images/images/6.jpeg" alt="residuals"></p>
 <p class="has-line-data" data-line-start="694" data-line-end="716">[1] “Opened long position in SASA on 2023-01-02 12:00:00”<br>
 [1] “Opened short position in SISE on 2023-01-02 12:00:00”<br>
 [1] “Closed long position in SASA on 2023-02-02 19:00:00 with earnings: -0.0155813875045325”<br>
